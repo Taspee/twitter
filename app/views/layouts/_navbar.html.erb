@@ -12,6 +12,9 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
         </li>
+        <% if user_signed_in? %>
+        <%= button_to 'Exit', destroy_user_session_path, method: :delete, class:'nav-link' %>
+        <% end %>
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
