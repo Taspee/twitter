@@ -17,8 +17,14 @@ class TweetsController < ApplicationController
             redirect_to tweet, notice: 'tweet guardado con exito'
         else
             render :new
+        end
     end
 
+    def destroy
+        @tweet = Tweet.find params[:id]
+        @tweet.destroy
+        redirect_to tweets_path, notice: 'tweet eliminado con exito'
+    end
     private
     def tweet_params
         params.require(:tweet).permit(:body)
